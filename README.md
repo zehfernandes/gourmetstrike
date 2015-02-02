@@ -1,4 +1,4 @@
-![Gourmet Strike](https://dl.dropboxusercontent.com/u/8015936/gourmet/logo.png)
+# Gourmet Strike
 
 Web app to generate random compliments for gourmet foods.
 
