@@ -11,6 +11,8 @@ npm install
 node http.js
 ```
 
+The app should now be running on localhost:3000.
+
 ## Database
 
 Everone can add words in the [Google Spreesheet](https://docs.google.com/spreadsheets/d/1C3lg4GdS5DGnnpCWP1KHf6FHxLuM1lR44w_AAfKXdZ4/edit?usp=sharing)
