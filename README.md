@@ -2,6 +2,19 @@
 
 Web app to generate random compliments for gourmet foods.
 
+## Instructions
+
+Make sure you have [Node.js](http://nodejs.org/) and run in directory
+
+```sh
+npm install
+node http.js
+```
+
+## Database
+
+Everone can add words in the [Google Spreesheet](https://docs.google.com/spreadsheets/d/1C3lg4GdS5DGnnpCWP1KHf6FHxLuM1lR44w_AAfKXdZ4/edit?usp=sharing)
+
 ## To-do
 
 ### Planning
@@ -10,7 +23,8 @@ Web app to generate random compliments for gourmet foods.
 
 ### Back-End
 
-- [ ] Generate compliment
+- [x] Generate compliment
+- [ ] Find server
 
 ### Front-End
 - [ ] Two illustrations
