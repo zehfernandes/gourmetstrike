@@ -1,9 +1,26 @@
 {
-  "name": "nodeKiddings",
-  "version": "0.0.0",
-  "private": true,
+  "name": "gourmetstrike",
+  "version": "0.0.1",
+  "description": "Web app to generate random compliments for gourmet foods.",
+  "main": "http.js",
+  "scripts": {
+    "start": "node http.js"
+  },
   "dependencies": {
     "node-simple-router":"*",
     "drive-db":"*"
-  }
+  },
+  "engines": {
+    "node": "0.10.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zehfernandes/gourmetstrike"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "gourmet"
+  ],
+  "license": "MIT"
 }

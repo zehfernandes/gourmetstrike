@@ -9,7 +9,8 @@ drive.update("1C3lg4GdS5DGnnpCWP1KHf6FHxLuM1lR44w_AAfKXdZ4");
 
 var formulas = [
     ['inicio-frase','adjetivo-vazio', 'objeto-elogio', 'ingrediente'],
-    ['unidade', 'adjetivo-chefe', 'ingrediente']
+    ['inicio-frase', 'unidade', 'adjetivo-chefe', 'ingrediente'],
+    ['inicio-frase', 'objeto-elogio', 'regional']
 ];
 
 router.get("/hello", function(request, response) {
@@ -23,6 +24,7 @@ router.get("/hello", function(request, response) {
         //Random Value array
         var r2 = Math.floor(Math.random() * (wordArray.length) );
 
+        console.log(item+" : "+wordArray.length+" : "+r2);
         expression = expression+wordArray[r2].word+" ";
 
     });
@@ -42,4 +44,6 @@ fs.readFile('./index.html', function (err, html) {
 });
 
 var server = http.createServer(router);
-server.listen(3000);
+server.listen(process.env.PORT || 3000, function(){
+  console.log('listening on', server.address().port);
+});
