@@ -3,11 +3,11 @@
 
 @font-face {
 	font-family:'ProximaNova-Black';
-	src: url('fonts/ProximaNova-Black.eot');
-	src: url('fonts/ProximaNova-Black.eot?#iefix') format('embedded-opentype'),
-		url('fonts/ProximaNova-Black.woff') format('woff'),
-		url('fonts/ProximaNova-Black.ttf') format('truetype'),
-		url('fonts/ProximaNova-Black.svg#ProximaNova-Black') format('svg');
+	src: url('../fonts/ProximaNova-Black.eot');
+	src: url('../fonts/ProximaNova-Black.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/ProximaNova-Black.woff') format('woff'),
+		url('../fonts/ProximaNova-Black.ttf') format('truetype'),
+		url('../fonts/ProximaNova-Black.svg#ProximaNova-Black') format('svg');
 	font-weight: 900;
 	font-style: normal;
 	font-stretch: normal;
@@ -16,11 +16,11 @@
 
 @font-face {
 	font-family:'ProximaNova-Bold';
-	src: url('fonts/ProximaNova-Bold.eot');
-	src: url('fonts/ProximaNova-Bold.eot?#iefix') format('embedded-opentype'),
-		url('fonts/ProximaNova-Bold.woff') format('woff'),
-		url('fonts/ProximaNova-Bold.ttf') format('truetype'),
-		url('fonts/ProximaNova-Bold.svg#ProximaNova-Bold') format('svg');
+	src: url('../fonts/ProximaNova-Bold.eot');
+	src: url('../fonts/ProximaNova-Bold.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/ProximaNova-Bold.woff') format('woff'),
+		url('../fonts/ProximaNova-Bold.ttf') format('truetype'),
+		url('../fonts/ProximaNova-Bold.svg#ProximaNova-Bold') format('svg');
 	font-weight: 700;
 	font-style: normal;
 	font-stretch: normal;
@@ -135,4 +135,27 @@ body {
 /* CELULAR PORTRAIT */
 @media only screen and (min-width : 321px) and (max-width : 420px) { 
 	.persona { width: 50% }
+}
+
+
+/* ANIMAÇÕES */
+
+@-webkit-keyframes buttonFade { to {	opacity: 1;	} }
+@-moz-keyframes buttonFade { to {	opacity: 1;	} }
+@-ms-keyframes buttonFade { to {	opacity: 1;	} }
+@-o-keyframes buttonFade { to {	opacity: 1;	} }
+@keyframes buttonFade {
+	to {
+		opacity: 1;
+	}
+}
+
+#start {
+	opacity: 0;
+
+	-webkit-animation: buttonFade 1s 1s 1 ease-in forwards;
+	-moz-animation: buttonFade 1s 1s 1 ease-in forwards;
+	-o-animation: buttonFade 1s 1s 1 ease-in forwards;
+	-ms-animation: buttonFade 1s 1s 1 ease-in forwards;
+	animation: buttonFade 1s 1s 1 ease-in forwards;
 }
