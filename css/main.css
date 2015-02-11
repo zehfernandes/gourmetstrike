@@ -140,22 +140,24 @@ body {
 
 /* ANIMAÇÕES */
 
-@-webkit-keyframes buttonFade { to {	opacity: 1;	} }
-@-moz-keyframes buttonFade { to {	opacity: 1;	} }
-@-ms-keyframes buttonFade { to {	opacity: 1;	} }
-@-o-keyframes buttonFade { to {	opacity: 1;	} }
-@keyframes buttonFade {
+/* Button Intro Fade In */
+@-webkit-keyframes button-fadein { to {	opacity: 1;	} }
+@-moz-keyframes button-fadein { to {	opacity: 1;	} }
+@-ms-keyframes button-fadein { to {	opacity: 1;	} }
+@-o-keyframes button-fadein { to {	opacity: 1;	} }
+
+@keyframes button-fadein {
 	to {
 		opacity: 1;
 	}
 }
 
-#start {
+.button.animated {
 	opacity: 0;
 
-	-webkit-animation: buttonFade 1s 1s 1 ease-in forwards;
-	-moz-animation: buttonFade 1s 1s 1 ease-in forwards;
-	-o-animation: buttonFade 1s 1s 1 ease-in forwards;
-	-ms-animation: buttonFade 1s 1s 1 ease-in forwards;
-	animation: buttonFade 1s 1s 1 ease-in forwards;
+	-webkit-animation: button-fadein .5s .5s 1 ease-in forwards;
+	-moz-animation: button-fadein .5s .5s 1 ease-in forwards;
+	-o-animation: button-fadein .5s .5s 1 ease-in forwards;
+	-ms-animation: button-fadein .5s .5s 1 ease-in forwards;
+	animation: button-fadein .5s .5s 1 ease-in forwards;
 }
