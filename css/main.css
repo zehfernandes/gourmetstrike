@@ -161,3 +161,31 @@ body {
 	-ms-animation: button-fadein .5s .5s 1 ease-in forwards;
 	animation: button-fadein .5s .5s 1 ease-in forwards;
 }
+
+.button.animated:before, .button.animated:after { 
+  transition: all 100ms cubic-bezier(0.250, 0.250, 0.100, 1.140);
+  content:"";
+  background:#51291b;
+  height:4px;
+  position: absolute;
+  bottom: 0.5em;
+  border-radius: 5px;
+  width: 0;
+}
+
+.button.animated:before {
+  left: -5px;
+}
+
+.button.animated:after { 
+    left: 10px;
+}
+
+.button.animated:hover::before { 
+  width: 8em;
+}
+
+.button.animated:hover::after { 
+  left:8em;
+  width: 0.8em;
+}
