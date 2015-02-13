@@ -51,6 +51,8 @@ body {
 	overflow: hidden;
 }
 
+/* LOGO */
+
 .wrap {
 	padding: 3em 0 0 12em;
 	width: 60%;
@@ -58,24 +60,36 @@ body {
 	position: relative;
 }
 
-.logo {
-	font-family:'ProximaNova-Black';
-	color: #fff;
+.gourmet, .strike {
+	font-family:'ProximaNova-Black';	
 	font-weight: bold;
 	text-transform: uppercase;
-	font-size: 6.5em;
+	font-size: 6.5rem;
 	-webkit-transform-origin: center center;
 	-webkit-transform: rotate(-7deg) skew(-7deg); /* fix: add prefix later */
 	letter-spacing: -0.01em;
 	text-align: center;
+	display: block;
+}
+
+.gourmet {
+	color: #fff;
+	-webkit-animation: text-gourmet .45s cubic-bezier(0.175, 0.885, 0.320, 1.275);
+	-moz-animation: text-gourmet .45s cubic-bezier(0.175, 0.885, 0.320, 1.275);
+	-ms-animation: text-gourmet .45s cubic-bezier(0.175, 0.885, 0.320, 1.275);
+	-o-animation: text-gourmet .45s cubic-bezier(0.175, 0.885, 0.320, 1.275);
+	animation: text-gourmet .45s cubic-bezier(0.175, 0.885, 0.320, 1.275);
 }
 
 .strike {
-	text-align: center;
 	color: #ff506d;
-	display: block;
 	text-indent: 3em;
 	line-height: 0.4em;
+	-webkit-animation: text-strike .45s cubic-bezier(0.175, 0.885, 0.320, 1.275);
+	-moz-animation: text-strike .45s cubic-bezier(0.175, 0.885, 0.320, 1.275);
+	-ms-animation: text-strike .45s cubic-bezier(0.175, 0.885, 0.320, 1.275);
+	-o-animation: text-strike .45s cubic-bezier(0.175, 0.885, 0.320, 1.275);
+	animation: text-strike .45s cubic-bezier(0.175, 0.885, 0.320, 1.275);
 }
 
 .persona {
@@ -86,21 +100,53 @@ body {
 	z-index: -1;
 }
 
+/* BUTTON */
+
 .button {
 	font-family:'ProximaNova-Bold';
 	display:block;
 	padding: 1.1em 2em 1.1em 2em;
 	width: 12em;
-	margin: 2em auto 0 auto;
+	margin: 4em auto 0 auto;
 	text-decoration: none;
 	text-transform: uppercase;
 	color: #fff;
 	background:#ff1660;
 	text-align: center;
-	font-size: 1.2em;
+	font-size: 1.4em;
 	letter-spacing: 0.05em;
 	position:relative;
 	border-radius: 3px;
+	opacity: 0;
+	-webkit-animation: button-fadein .95s .3s 1 ease-in forwards;
+}
+
+.button:before, .button:after { 
+  transition: all 100ms cubic-bezier(0.250, 0.250, 0.100, 1.140);
+  content:"";
+  background:#51291b;
+  height:4px;
+  position: absolute;
+  bottom: 0.5em;
+  border-radius: 5px;
+  width: 0;
+}
+
+.button:before {
+  left: -5px;
+}
+
+.button:after { 
+    left: 10px;
+}
+
+.button:hover::before { 
+  width: 8em;
+}
+
+.button:hover::after { 
+  left:8em;
+  width: 0.8em;
 }
 
 .result-screen { display:  none; } /* Debug */
@@ -138,7 +184,7 @@ body {
 }
 
 
-/* ANIMAÇÕES */
+/* ANIMATIONS */
 
 /* Button Intro Fade In */
 @-webkit-keyframes button-fadein { to {	opacity: 1;	} }
@@ -147,45 +193,19 @@ body {
 @-o-keyframes button-fadein { to {	opacity: 1;	} }
 
 @keyframes button-fadein {
-	to {
-		opacity: 1;
-	}
+	to { opacity: 1; }
 }
 
-.button.animated {
-	opacity: 0;
-
-	-webkit-animation: button-fadein .5s .5s 1 ease-in forwards;
-	-moz-animation: button-fadein .5s .5s 1 ease-in forwards;
-	-o-animation: button-fadein .5s .5s 1 ease-in forwards;
-	-ms-animation: button-fadein .5s .5s 1 ease-in forwards;
-	animation: button-fadein .5s .5s 1 ease-in forwards;
+@-webkit-keyframes text-gourmet {
+  0%   { text-indent: -20em; opacity:0; }
+  3%  { opacity: 0; }
+  25%  { opacity: 1; }
+  100% { text-indent: 0; }
 }
 
-.button.animated:before, .button.animated:after { 
-  transition: all 100ms cubic-bezier(0.250, 0.250, 0.100, 1.140);
-  content:"";
-  background:#51291b;
-  height:4px;
-  position: absolute;
-  bottom: 0.5em;
-  border-radius: 5px;
-  width: 0;
-}
-
-.button.animated:before {
-  left: -5px;
-}
-
-.button.animated:after { 
-    left: 10px;
-}
-
-.button.animated:hover::before { 
-  width: 8em;
-}
-
-.button.animated:hover::after { 
-  left:8em;
-  width: 0.8em;
+@-webkit-keyframes text-strike {
+  0%   { text-indent: 20em; opacity:0; }
+  3%  { opacity: 0; }
+  25%  { opacity: 1; }
+  100% { text-indent: 3em; }
 }
