@@ -74,22 +74,22 @@ body {
 
 .gourmet {
 	color: #fff;
-	-webkit-animation: text-gourmet .45s cubic-bezier(0.175, 0.885, 0.320, 1.275);
-	-moz-animation: text-gourmet .45s cubic-bezier(0.175, 0.885, 0.320, 1.275);
-	-ms-animation: text-gourmet .45s cubic-bezier(0.175, 0.885, 0.320, 1.275);
-	-o-animation: text-gourmet .45s cubic-bezier(0.175, 0.885, 0.320, 1.275);
-	animation: text-gourmet .45s cubic-bezier(0.175, 0.885, 0.320, 1.275);
+	-webkit-animation: text-gourmet .35s cubic-bezier(0.175, 0.885, 0.320, 1.275);
+	-moz-animation: text-gourmet .35s cubic-bezier(0.175, 0.885, 0.320, 1.275);
+	-ms-animation: text-gourmet .35s cubic-bezier(0.175, 0.885, 0.320, 1.275);
+	-o-animation: text-gourmet .35s cubic-bezier(0.175, 0.885, 0.320, 1.275);
+	animation: text-gourmet .35s cubic-bezier(0.175, 0.885, 0.320, 1.275);
 }
 
 .strike {
 	color: #ff506d;
 	text-indent: 3em;
 	line-height: 0.4em;
-	-webkit-animation: text-strike .45s cubic-bezier(0.175, 0.885, 0.320, 1.275);
-	-moz-animation: text-strike .45s cubic-bezier(0.175, 0.885, 0.320, 1.275);
-	-ms-animation: text-strike .45s cubic-bezier(0.175, 0.885, 0.320, 1.275);
-	-o-animation: text-strike .45s cubic-bezier(0.175, 0.885, 0.320, 1.275);
-	animation: text-strike .45s cubic-bezier(0.175, 0.885, 0.320, 1.275);
+	-webkit-animation: text-strike .35s cubic-bezier(0.175, 0.885, 0.320, 1.275);
+	-moz-animation: text-strike .35s cubic-bezier(0.175, 0.885, 0.320, 1.275);
+	-ms-animation: text-strike .35s cubic-bezier(0.175, 0.885, 0.320, 1.275);
+	-o-animation: text-strike .35s cubic-bezier(0.175, 0.885, 0.320, 1.275);
+	animation: text-strike .35s cubic-bezier(0.175, 0.885, 0.320, 1.275);
 }
 
 .persona {
@@ -118,7 +118,7 @@ body {
 	position:relative;
 	border-radius: 3px;
 	opacity: 0;
-	-webkit-animation: button-fadein .95s .3s 1 ease-in forwards;
+	-webkit-animation: button-fadein .35s .25s 1 ease-in forwards;
 }
 
 .button:before, .button:after { 
