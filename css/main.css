@@ -94,10 +94,11 @@ body {
 
 .persona {
 	position: fixed;
-	bottom: 0;
-	left: 0;
-	width: 90%;
+	bottom: -100%;
+	left: 15%;
+	width: 68%;
 	z-index: -1;
+	-webkit-animation: chef-intro .75s .35s 1 cubic-bezier(0.555, -0.200, 0.260, 1.315) forwards;
 }
 
 /* BUTTON */
@@ -119,6 +120,10 @@ body {
 	border-radius: 3px;
 	opacity: 0;
 	-webkit-animation: button-fadein .35s .25s 1 ease-in forwards;
+	-moz-animation: button-fadein .35s .25s 1 ease-in forwards;
+	-ms-animation: button-fadein .35s .25s 1 ease-in forwards;
+	-o-animation: button-fadein .35s .25s 1 ease-in forwards;
+	animation: button-fadein .35s .25s 1 ease-in forwards;
 }
 
 .button:before, .button:after { 
@@ -152,7 +157,7 @@ body {
 .result-screen { display:  none; } /* Debug */
 
 /* Svg control */
-#arm, #hand, #plate { display: none; }
+#arm, #hand, #plate { /*display: none;*/ }
 
 
 
@@ -187,15 +192,11 @@ body {
 /* ANIMATIONS */
 
 /* Button Intro Fade In */
-@-webkit-keyframes button-fadein { to {	opacity: 1;	} }
-@-moz-keyframes button-fadein { to {	opacity: 1;	} }
-@-ms-keyframes button-fadein { to {	opacity: 1;	} }
-@-o-keyframes button-fadein { to {	opacity: 1;	} }
-
-@keyframes button-fadein {
+@-webkit-keyframes button-fadein {
 	to { opacity: 1; }
 }
 
+/* Logo Intro Animations */
 @-webkit-keyframes text-gourmet {
   0%   { text-indent: -20em; opacity:0; }
   3%  { opacity: 0; }
@@ -208,4 +209,14 @@ body {
   3%  { opacity: 0; }
   25%  { opacity: 1; }
   100% { text-indent: 3em; }
+}
+
+/* Illustration Intro Animations */
+@-webkit-keyframes chef-intro {
+	0% { bottom: -100%; }
+	100% { bottom: -5%; }
+}
+@-webkit-keyframes chef-idle {
+	0% { bottom: -5%; }
+	100% { bottom: 0%; }
 }
