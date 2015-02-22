@@ -154,11 +154,56 @@ body {
   width: 0.8em;
 }
 
-.result-screen { display:  none; } /* Debug */
+/*  .result-screen { display:  none; } Debug */
 
 /* Svg control */
 #arm, #hand, #plate { /*display: none;*/ }
 
+
+/* SECOND SCREEN
+------------------- */
+.tilte-screen { display:  none; } /* Debug */
+
+.complain { 
+	font-family:'ProximaNova-Bold';
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 5em;
+	line-height: 1em;
+	width: 80%;
+	-webkit-transform-origin: center center;
+	-webkit-transform: rotate(-7deg) skew(-7deg); /* fix: add prefix later */
+}
+
+.hash-complain { 
+	display: inline-block;
+	font-size: 0.5em;
+	background: #fff;
+	color: #4e2c20;
+	padding: 0.2em 0.5em 0.1em 0.5em;
+	line-height: 1.2em;
+	margin-bottom: 0.3em;
+}
+
+.result-screen { 
+	margin-left: 10%;
+}
+
+.retry, .tweet {
+	margin: 0;
+	font-size: 1em;
+	display: inline-block;
+}
+
+.tweet {
+	margin-left: 1em;
+	background: #55acee;
+}
+
+.instruction {
+	color: #784533;
+	font-style: italic;
+}
 
 
 /* MEDIA QUERIES - FIX
