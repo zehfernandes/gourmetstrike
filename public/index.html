@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>Gourmet Strike</title>
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+	<h1>Teste</h1>
+	<p id="expression"></p>
+
+	<button id="button">Generate</button>
+</body>
+
+<script>
+
+		function requestWords() {
+			var request = new XMLHttpRequest();
+			request.open('GET', '/hello', true);
+
+			request.onload = function() {
+			  if (request.status >= 200 && request.status < 400) {
+			    // Success!
+			    var resp = request.responseText;
+				document.getElementById("expression").innerHTML = resp;
+
+			  } else {
+			    // We reached our target server, but it returned an error
+
+			  }
+			};
+
+			request.onerror = function() {
+			  // There was a connection error of some sort
+			};
+
+			request.send();
+		}
+
+
+		document.getElementById("button").addEventListener("click", requestWords);
+
+		requestWords();
+	</script>
+
+
+</html>
