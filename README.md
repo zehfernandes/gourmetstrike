@@ -20,8 +20,8 @@ Everone can add words in the [Google Spreesheet](https://docs.google.com/spreads
 ## To-do
 
 ### Planning
-- [ ] Formulas
-- [ ] List of Words
+- [x] Formulas
+- [x] List of Words
 
 ### Back-End
 
@@ -29,6 +29,8 @@ Everone can add words in the [Google Spreesheet](https://docs.google.com/spreads
 - [ ] Find server
 
 ### Front-End
-- [ ] Two illustrations
-- [ ] Interface base
+- [x] Illustrations
+- [x] Interface base
 - [ ] Interface animation
+- [ ] Media Queries
+
