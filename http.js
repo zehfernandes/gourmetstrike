@@ -24,7 +24,7 @@ router.get("/hello", function(request, response) {
         //Random Value array
         var r2 = Math.floor(Math.random() * (wordArray.length) );
 
-        console.log(item+" : "+wordArray.length+" : "+r2);
+        //console.log(item+" : "+wordArray.length+" : "+r2);
         expression = expression+wordArray[r2].word+" ";
 
     });
@@ -32,11 +32,31 @@ router.get("/hello", function(request, response) {
 	response.end(expression);
 });
 
-fs.readFile('./index.html', function (err, html) {
+/*Static Files
+var _dir = "public/";
+var files = ["index.html"];
+files.forEach(function(entry) {
+    var ext = entry.split(".");
+    console.log(entry)
+
+    fs.readFile(_dir+entry, function (err, html) {
+        if (err) {
+            throw err;
+        }
+        router.get(entry, function(request, response) {
+            response.writeHeader(200, {"Content-Type": "text/"+ext[1]});
+            response.write(html);
+            response.end();
+        });
+    });
+
+});*/
+
+fs.readFile("public/index.html", function (err, html) {
     if (err) {
         throw err;
     }
-    router.get("/", function(request, response) {
+    router.get("./", function(request, response) {
         response.writeHeader(200, {"Content-Type": "text/html"});
         response.write(html);
         response.end();
