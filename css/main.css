@@ -94,11 +94,20 @@ body {
 
 .persona {
 	position: fixed;
+	z-index: -1;	
+}
+.title-screen .persona {	
 	bottom: -100%;
 	left: 15%;
 	width: 68%;
-	z-index: -1;
 	-webkit-animation: chef-intro .75s .35s 1 cubic-bezier(0.555, -0.200, 0.260, 1.315) forwards;
+}
+.result-screen .persona {
+	bottom: 0%;
+	right: 0%;
+	width: 80%;
+	-webkit-transform: scaleX(-1);
+	-webkit-animation: chef-result .75s .35s 1 cubic-bezier(0.555, -0.200, 0.260, 1.315) forwards;
 }
 
 /* BUTTON */
@@ -157,7 +166,6 @@ body {
 /*  .result-screen { display:  none; } Debug */
 
 /* Svg control */
-#arm, #hand, #plate { /*display: none;*/ }
 
 
 /* SECOND SCREEN
@@ -170,7 +178,7 @@ body {
 	text-transform: uppercase;
 	font-size: 5em;
 	line-height: 1em;
-	width: 80%;
+	width: 70%;
 	-webkit-transform-origin: center center;
 	-webkit-transform: rotate(-7deg) skew(-7deg); /* fix: add prefix later */
 }
@@ -261,7 +269,7 @@ body {
 	0% { bottom: -100%; }
 	100% { bottom: -5%; }
 }
-@-webkit-keyframes chef-idle {
-	0% { bottom: -5%; }
-	100% { bottom: 0%; }
+@-webkit-keyframes chef-result {
+	0% { right: -100%; }
+	100% { right: 0%; }
 }
