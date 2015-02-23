@@ -1,29 +1,45 @@
 var currentExpression;
+var generate = true;
 
 function requestWords() {
-	var request = new XMLHttpRequest();
-	request.open('GET', '/hello', true);
 
-	request.onload = function() {
-	  if (request.status >= 200 && request.status < 400) {
-	    // Success!
-	    var resp = request.responseText;
-	    currentExpression = resp;
-		document.getElementById("expression").innerHTML = resp;
+	if (generate == true) {
+		generate = false;
 
-	  } else {
-	    // We reached our target server, but it returned an error
+		var request = new XMLHttpRequest();
+		request.open('GET', '/hello', true);
 
-	  }
-	};
+		request.onload = function() {
+		  if (request.status >= 200 && request.status < 400) {
+		    // Success!
+		    var resp = request.responseText;
+		    currentExpression = resp;
 
-	request.onerror = function() {
-	  // There was a connection error of some sort
-	};
+		    $_expression = document.getElementById("expression");
+			$_expression.innerHTML = resp;
+			$_expression.className =  "pulse";
 
-	request.send();
+			setTimeout(function(){ 
+				$_expression.className = "";
+				generate = true;
+			}, 500);
 
-	return false;
+
+		  } else {
+		    // We reached our target server, but it returned an error
+
+		  }
+		};
+
+		request.onerror = function() {
+		  // There was a connection error of some sort
+		};
+
+		request.send();
+
+	}
+
+	evt.preventDefault();
 }
 
 function openTweetBox(evt) {

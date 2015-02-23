@@ -178,6 +178,7 @@ body {
 	font-size: 5em;
 	line-height: 1em;
 	width: 70%;
+	height: 370px;
 	-webkit-transform-origin: center center;
 	-webkit-transform: rotate(-3deg) skew(-3deg); /* fix: add prefix later */
 }
@@ -210,6 +211,10 @@ body {
 .instruction {
 	color: #784533;
 	font-style: italic;
+}
+
+.pulse { 
+	-webkit-animation: pulse .45s 1 ease-in forwards; /* Standard syntax */
 }
 
 
@@ -271,4 +276,22 @@ body {
 @-webkit-keyframes chef-result {
 	0% { right: -100%; }
 	100% { right: 0%; }
+}
+
+/* Chage Text */
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    -webkit-transform: scale3d(1.05, 1.05, 1.05);
+            transform: scale3d(1.05, 1.05, 1.05);
+  }
+
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+  }
 }
