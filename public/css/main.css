@@ -27,6 +27,19 @@
 	unicode-range: U+0020-2666;
 }
 
+@font-face {
+	font-family:'ProximaNova-Regular';
+	src: url('../fonts/ProximaNova-Regular.eot');
+	src: url('../fonts/ProximaNova-Regular.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/ProximaNova-Regular.woff') format('woff'),
+		url('../fonts/ProximaNova-Regular.ttf') format('truetype'),
+		url('../fonts/ProximaNova-Regular.svg#ProximaNova-Regular') format('svg');
+	font-weight: 500;
+	font-style: normal;
+	font-stretch: normal;
+	unicode-range: U+0020-2666;
+}
+
 /* Base Style
 ------------------- */
 
@@ -61,7 +74,7 @@ body {
 }
 
 .gourmet, .strike {
-	font-family:'ProximaNova-Black';	
+	font-family:'ProximaNova-Black';
 	font-weight: bold;
 	text-transform: uppercase;
 	font-size: 6.5rem;
@@ -120,7 +133,7 @@ body {
 	text-decoration: none;
 	text-transform: uppercase;
 	color: #fff;
-	background:#ff1660;
+	background:#ff506d;
 	text-align: center;
 	font-size: 1.4em;
 	letter-spacing: 0.05em;
@@ -134,7 +147,7 @@ body {
 	animation: button-fadein .35s .25s 1 ease-in forwards;
 }
 
-.button:before, .button:after { 
+.button:before, .button:after {
   transition: all 100ms cubic-bezier(0.250, 0.250, 0.100, 1.140);
   content:"";
   background:#51291b;
@@ -169,6 +182,7 @@ body {
 
 /* SECOND SCREEN
 ------------------- */
+
 .tilte-screen { display:  none; } /* Debug */
 
 .complain { 
@@ -213,9 +227,62 @@ body {
 	font-style: italic;
 }
 
-.pulse { 
-	-webkit-animation: pulse .45s 1 ease-in forwards; /* Standard syntax */
+.pulse {
+	-webkit-animation: pulse .2s 1 ease-in forwards; /* Standard syntax */
 }
+
+/* ABOUT
+------------------- */
+
+/* Overlay style */
+.overlay {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: rgba(240,85,110,0.95);
+}
+
+.overlay-scale {
+	visibility: hidden;
+	opacity: 0;
+	-webkit-transform: scale(0.9);
+	transform: scale(0.9);
+	-webkit-transition: -webkit-transform 0.2s, opacity 0.2s, visibility 0s 0.2s;
+	transition: transform 0.2s, opacity 0.2s, visibility 0s 0.2s;
+}
+
+.overlay-scale.open {
+	visibility: visible;
+	opacity: 1;
+	-webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: -webkit-transform 0.4s, opacity 0.4s;
+	transition: transform 0.4s, opacity 0.4s;
+}
+
+.about { position: absolute; top: 18px; right: 18px; color: #cba294; font-size: 0.9em; font-family:'ProximaNova-Regular'; }
+.about a { color: #bc978a; position: relative; text-decoration: none; }
+
+.about a:before, .about a:after {
+  content:"";
+  background:#bc978a;
+  height:1px;
+  position: absolute;
+  bottom: -0.18em;
+  border-radius: 3px;
+}
+
+.about a:before {
+  width: 3.8em;
+}
+
+.about a:after {
+  left: 4.1em;
+  width: 0.6em;
+}
+
 
 
 /* MEDIA QUERIES - FIX
