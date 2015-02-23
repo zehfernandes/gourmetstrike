@@ -1,7 +1,7 @@
 var currentExpression;
 var generate = true;
 
-function generateComplain(evt) {
+function requestWords() {
 
 	if (generate == true) {
 		generate = false;
@@ -57,23 +57,16 @@ function openTweetBox(evt) {
 }
 
 function spaceBarShortCut(evt) {
-	if (evt.keyCode == 0 || evt.keyCode == 32) {
-		generateComplain();
+	if (evt.keyCode == 32) {
+		requestWords();
 	}
 
 	evt.preventDefault();
 }
 
-document.getElementById("retry").addEventListener("click", generateComplain);
+document.getElementById("retry").addEventListener("click", requestWords);
 document.getElementById("tweet").addEventListener("click", openTweetBox);
-document.addEventListener("keydown", spaceBarShortCut, false);
+document.addEventListener("keyup", spaceBarShortCut, false);
 
 
-
-
-$(window).keypress(function(e) {
-  if (e.keyCode == 0 || e.keyCode == 32) {
-    console.log('Space pressed');
-  }
-});
 //requestWords();

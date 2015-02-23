@@ -32,6 +32,26 @@ router.get("/hello", function(request, response) {
 	response.end(expression);
 });
 
+/*Static Files
+var _dir = "public/";
+var files = ["index.html"];
+files.forEach(function(entry) {
+    var ext = entry.split(".");
+    console.log(entry)
+
+    fs.readFile(_dir+entry, function (err, html) {
+        if (err) {
+            throw err;
+        }
+        router.get(entry, function(request, response) {
+            response.writeHeader(200, {"Content-Type": "text/"+ext[1]});
+            response.write(html);
+            response.end();
+        });
+    });
+
+});*/
+
 fs.readFile("public/index.html", function (err, html) {
     if (err) {
         throw err;
