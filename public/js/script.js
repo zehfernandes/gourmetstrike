@@ -3,7 +3,7 @@
 var currentExpression;
 var generate = true;
 
-function requestWords(evt) {
+function requestWords() {
 
 	if (generate == true) {
 		generate = false;
@@ -41,7 +41,6 @@ function requestWords(evt) {
 
 	}
 
-	evt.preventDefault();
 }
 
 function openTweetBox(evt) {
@@ -66,9 +65,26 @@ function spaceBarShortCut(evt) {
 	evt.preventDefault();
 }
 
+function goToSecondScreen() {
+	$_titleScreen = document.querySelector( 'div.title-screen' );
+	$_resultScren = document.querySelector( 'div.result-screen' );
+	$_chef = document.getElementById("chef-intro");
+	$_wrap = document.querySelector( 'div.wrap' );
+
+	classie.add( $_wrap, 'fadeOut' );
+	classie.add( $_chef, 'chef-out' );
+
+	setTimeout(function(){
+		$_titleScreen.style.display = "none";
+		$_resultScren.style.display = "block";
+		requestWords(null);
+	}, 650);
+}
+
 //Listeners
 document.getElementById("retry").addEventListener("click", requestWords);
 document.getElementById("tweet").addEventListener("click", openTweetBox);
+document.getElementById("start").addEventListener("click", goToSecondScreen);
 document.addEventListener("keyup", spaceBarShortCut, false);
 
 
