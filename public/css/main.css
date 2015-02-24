@@ -418,10 +418,10 @@ body {
 /* Illustration Intro Animations */
 @-webkit-keyframes chef-intro {
 	0% { bottom: -100%; }
-	100% { bottom: 0%; }
+	100% { bottom: -4%; }
 }
 @-webkit-keyframes chef-out {
-	0% { bottom: 0%; }
+	0% { bottom: -4%; }
 	100% { bottom: -100%; }
 }
 @-webkit-keyframes chef-result {
