@@ -1,7 +1,30 @@
 (function() {
 
-var currentExpression;
-var generate = true;
+"use strict";
+
+//------------------------------------------
+// VARS
+//------------------------------------------
+
+var overlay         = document.querySelector( 'div.overlay' ),
+	$_closeBttn     = overlay.querySelector( '.overlay-close' ),
+	generate        = true,
+	currentExpression;
+
+var transEndEventNames 	= {
+			'WebkitTransition': 'webkitTransitionEnd',
+			'MozTransition': 'transitionend',
+			'OTransition': 'oTransitionEnd',
+			'msTransition': 'MSTransitionEnd',
+			'transition': 'transitionend'
+		},
+	transEndEventName 	= transEndEventNames[ Modernizr.prefixed( 'transition' ) ],
+	support 			= { transitions : Modernizr.csstransitions };
+
+
+//------------------------------------------
+// FUNCTIONS
+//------------------------------------------
 
 function requestWords() {
 
@@ -17,7 +40,7 @@ function requestWords() {
 		    var resp = request.responseText;
 		    currentExpression = resp;
 
-		    $_expression = document.getElementById("expression");
+		    var $_expression = document.getElementById("expression");
 			$_expression.innerHTML = resp;
 			classie.add( $_expression, 'pulse' );
 
@@ -29,7 +52,6 @@ function requestWords() {
 
 		  } else {
 		    // We reached our target server, but it returned an error
-
 		  }
 		};
 
@@ -40,9 +62,10 @@ function requestWords() {
 		request.send();
 
 	}
-
 }
 
+
+//Twitter Popup
 function openTweetBox(evt) {
 
 	var width = 550;
@@ -54,9 +77,9 @@ function openTweetBox(evt) {
   	window.open(url,'janela', 'width='+width+', height='+height+', top='+top+', left='+left+', scrollbars=no, status=no, toolbar=no, location=no, directories=no, menubar=no, resizable=no, fullscreen=no');
 
   	evt.preventDefault();
-
 }
 
+//Space Bar
 function spaceBarShortCut(evt) {
 	if (evt.keyCode == 32) {
 		requestWords();
@@ -65,11 +88,12 @@ function spaceBarShortCut(evt) {
 	evt.preventDefault();
 }
 
+//Go To result screen
 function goToSecondScreen() {
-	$_titleScreen = document.querySelector( 'div.title-screen' );
-	$_resultScren = document.querySelector( 'div.result-screen' );
-	$_chef = document.getElementById("chef-intro");
-	$_wrap = document.querySelector( 'div.wrap' );
+	var $_titleScreen = document.querySelector( 'div.title-screen' ),
+		$_resultScren = document.querySelector( 'div.result-screen' ),
+		$_chef = document.getElementById("chef-intro"),
+		$_wrap = document.querySelector( 'div.wrap' );
 
 	classie.add( $_wrap, 'fadeOut' );
 	classie.add( $_chef, 'chef-out' );
@@ -81,54 +105,40 @@ function goToSecondScreen() {
 	}, 650);
 }
 
-//Listeners
+//Open Modal
+function toggleOverlay() {
+	if( classie.has( overlay, 'open' ) ) {
+		classie.remove( overlay, 'open' );
+		classie.add( overlay, 'close' );
+		var onEndTransitionFn = function( ev ) {
+			if( support.transitions ) {
+				if( ev.propertyName !== 'visibility' ) return;
+				this.removeEventListener( transEndEventName, onEndTransitionFn );
+			}
+			classie.remove( overlay, 'close' );
+		};
+		if( support.transitions ) {
+			overlay.addEventListener( transEndEventName, onEndTransitionFn );
+		}
+		else {
+			onEndTransitionFn();
+		}
+	}
+	else if( !classie.has( overlay, 'close' ) ) {
+		classie.add( overlay, 'open' );
+	}
+}
+
+//------------------------------------------
+// LISTNERS
+//------------------------------------------
+
 document.getElementById("retry").addEventListener("click", requestWords);
 document.getElementById("tweet").addEventListener("click", openTweetBox);
 document.getElementById("start").addEventListener("click", goToSecondScreen);
 document.addEventListener("keyup", spaceBarShortCut, false);
-
-
-
-//OPEN MODAL
-var triggerBttn = document.getElementById( 'trigger-overlay' ),
-		overlay = document.querySelector( 'div.overlay' ),
-		closeBttn = overlay.querySelector( '.overlay-close' );
-		transEndEventNames = {
-			'WebkitTransition': 'webkitTransitionEnd',
-			'MozTransition': 'transitionend',
-			'OTransition': 'oTransitionEnd',
-			'msTransition': 'MSTransitionEnd',
-			'transition': 'transitionend'
-		},
-		transEndEventName = transEndEventNames[ Modernizr.prefixed( 'transition' ) ],
-		support = { transitions : Modernizr.csstransitions };
-
-
-	function toggleOverlay() {
-		if( classie.has( overlay, 'open' ) ) {
-			classie.remove( overlay, 'open' );
-			classie.add( overlay, 'close' );
-			var onEndTransitionFn = function( ev ) {
-				if( support.transitions ) {
-					if( ev.propertyName !== 'visibility' ) return;
-					this.removeEventListener( transEndEventName, onEndTransitionFn );
-				}
-				classie.remove( overlay, 'close' );
-			};
-			if( support.transitions ) {
-				overlay.addEventListener( transEndEventName, onEndTransitionFn );
-			}
-			else {
-				onEndTransitionFn();
-			}
-		}
-		else if( !classie.has( overlay, 'close' ) ) {
-			classie.add( overlay, 'open' );
-		}
-	}
-
-	triggerBttn.addEventListener( 'click', toggleOverlay );
-	closeBttn.addEventListener( 'click', toggleOverlay );
+document.getElementById( 'trigger-overlay' ).addEventListener( 'click', toggleOverlay );
+$_closeBttn.addEventListener( 'click', toggleOverlay );
 
 
 })();
