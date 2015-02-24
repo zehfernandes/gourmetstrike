@@ -1,5 +1,14 @@
-/* Typography
-------------------- */
+/*------------------------------------------
+	Gourmet Strike
+
+	1 - Base Style
+	2 - Title Screen
+	3 - Result Screen
+	4 - About
+	5 - Media Queries
+	6 - Animations
+
+------------------------------------------*/
 
 @font-face {
 	font-family:'ProximaNova-Black';
@@ -40,8 +49,9 @@
 	unicode-range: U+0020-2666;
 }
 
-/* Base Style
-------------------- */
+/*------------------------------------------
+/* 1 - BASE STYLE
+/*------------------------------------------*/
 
 html { font-size: 1em; line-height: 1.4; }
 ::-moz-selection { background: #b3d4fc;text-shadow: none;
@@ -55,10 +65,7 @@ audio, canvas, iframe, img, svg, video { vertical-align: middle; }
             box-sizing: border-box;
 }
 
-/* App Style
-------------------- */
-
-html, body, .title-screen, .result-screen { min-height: 100%; height: 100%; }
+html, body { min-height: 100%; }
 
 body {
 	background: #4e2c20;
@@ -66,7 +73,60 @@ body {
 	overflow: hidden;
 }
 
-/* LOGO */
+.persona {
+	position: fixed;
+	z-index: -1;
+}
+
+/* BUTTON */
+.button {
+	font-family:'ProximaNova-Bold';
+	display:block;
+	padding: 1.1em 2em 1.1em 2em;
+	width: 12em;
+	margin: 4em auto 0 auto;
+	text-decoration: none;
+	text-transform: uppercase;
+	color: #fff;
+	background:#ff506d;
+	text-align: center;
+	font-size: 1.4em;
+	letter-spacing: 0.05em;
+	position:relative;
+	border-radius: 3px;
+	opacity: 0;
+
+	-webkit-animation: button-fadein .35s .25s 1 ease-in forwards;
+	-moz-animation: button-fadein .35s .25s 1 ease-in forwards;
+	-ms-animation: button-fadein .35s .25s 1 ease-in forwards;
+	-o-animation: button-fadein .35s .25s 1 ease-in forwards;
+	animation: button-fadein .35s .25s 1 ease-in forwards;
+}
+
+.button:before, .button:after {
+  content:"";
+  background:#51291b;
+  height:4px;
+  position: absolute;
+  bottom: 0.5em;
+  border-radius: 5px;
+  width: 0;
+
+  transition: all 100ms cubic-bezier(0.250, 0.250, 0.100, 1.140);
+  -moz-transition: all 100ms cubic-bezier(0.250, 0.250, 0.100, 1.140);
+  -ms-transition: all 100ms cubic-bezier(0.250, 0.250, 0.100, 1.140);
+  -o-transition: all 100ms cubic-bezier(0.250, 0.250, 0.100, 1.140);
+  transition: all 100ms cubic-bezier(0.250, 0.250, 0.100, 1.140);
+}
+
+.button:before { left: -5px; }
+.button:after { left: 10px; }
+.button:hover::before { width: 8em; }
+.button:hover::after { left:8em; width: 0.8em; }
+
+/*------------------------------------------
+/* 2 - TITLE SCREEN
+/*------------------------------------------*/
 
 .wrap {
 	padding: 3em 0 0 12em;
@@ -75,21 +135,37 @@ body {
 	position: relative;
 }
 
+.title-screen .persona {
+	bottom: -100%;
+	left: 20%;
+	width: 60%;
+	-webkit-animation: chef-intro .75s .35s 1 cubic-bezier(0.555, -0.200, 0.260, 1.315) forwards;
+	-moz-animation: chef-intro .75s .35s 1 cubic-bezier(0.555, -0.200, 0.260, 1.315) forwards;
+	-ms-animation: chef-intro .75s .35s 1 cubic-bezier(0.555, -0.200, 0.260, 1.315) forwards;
+	-o-animation: chef-intro .75s .35s 1 cubic-bezier(0.555, -0.200, 0.260, 1.315) forwards;
+	animation: chef-intro .75s .35s 1 cubic-bezier(0.555, -0.200, 0.260, 1.315) forwards;
+}
+
+
+/* Logo */
 .gourmet, .strike {
 	font-family:'ProximaNova-Black';
 	font-weight: bold;
 	text-transform: uppercase;
 	font-size: 6.5rem;
+
 	-webkit-transform-origin: center center;
 	-moz-transform-origin: center center;
 	-ms-transform-origin: center center;
 	-o-transform-origin: center center;
 	transform-origin: center center;
+
 	-webkit-transform: rotate(-7deg) skew(-7deg);
 	-moz-transform: rotate(-7deg) skew(-7deg);
 	-ms-transform: rotate(-7deg) skew(-7deg);
 	-o-transform: rotate(-7deg) skew(-7deg);
 	transform: rotate(-7deg) skew(-7deg);
+
 	letter-spacing: -0.01em;
 	text-align: center;
 	display: block;
@@ -115,78 +191,7 @@ body {
 	animation: text-strike .35s cubic-bezier(0.175, 0.885, 0.320, 1.275);
 }
 
-.persona {
-	position: fixed;
-	z-index: -1;
-}
-.title-screen .persona {
-	bottom: -100%;
-	left: 20%;
-	width: 60%;
-	-webkit-animation: chef-intro .75s .35s 1 cubic-bezier(0.555, -0.200, 0.260, 1.315) forwards;
-	-moz-animation: chef-intro .75s .35s 1 cubic-bezier(0.555, -0.200, 0.260, 1.315) forwards;
-	-ms-animation: chef-intro .75s .35s 1 cubic-bezier(0.555, -0.200, 0.260, 1.315) forwards;
-	-o-animation: chef-intro .75s .35s 1 cubic-bezier(0.555, -0.200, 0.260, 1.315) forwards;
-	animation: chef-intro .75s .35s 1 cubic-bezier(0.555, -0.200, 0.260, 1.315) forwards;
-}
-
-/* BUTTON */
-
-.button {
-	font-family:'ProximaNova-Bold';
-	display:block;
-	padding: 1.1em 2em 1.1em 2em;
-	width: 12em;
-	margin: 4em auto 0 auto;
-	text-decoration: none;
-	text-transform: uppercase;
-	color: #fff;
-	background:#ff506d;
-	text-align: center;
-	font-size: 1.4em;
-	letter-spacing: 0.05em;
-	position:relative;
-	border-radius: 3px;
-	opacity: 0;
-	-webkit-animation: button-fadein .35s .25s 1 ease-in forwards;
-	-moz-animation: button-fadein .35s .25s 1 ease-in forwards;
-	-ms-animation: button-fadein .35s .25s 1 ease-in forwards;
-	-o-animation: button-fadein .35s .25s 1 ease-in forwards;
-	animation: button-fadein .35s .25s 1 ease-in forwards;
-}
-
-.button:before, .button:after {
-  content:"";
-  background:#51291b;
-  height:4px;
-  position: absolute;
-  bottom: 0.5em;
-  border-radius: 5px;
-  width: 0;
-  transition: all 100ms cubic-bezier(0.250, 0.250, 0.100, 1.140);
-  -moz-transition: all 100ms cubic-bezier(0.250, 0.250, 0.100, 1.140);
-  -ms-transition: all 100ms cubic-bezier(0.250, 0.250, 0.100, 1.140);
-  -o-transition: all 100ms cubic-bezier(0.250, 0.250, 0.100, 1.140);
-  transition: all 100ms cubic-bezier(0.250, 0.250, 0.100, 1.140);
-}
-
-.button:before {
-  left: -5px;
-}
-
-.button:after {
-    left: 10px;
-}
-
-.button:hover::before {
-  width: 8em;
-}
-
-.button:hover::after {
-  left:8em;
-  width: 0.8em;
-}
-
+/* Animtion Class */
 .fadeOut {
 	-webkit-animation: fadeOut .35s .1s 1 ease-in forwards;
 	-moz-animation: fadeOut .35s .1s 1 ease-in forwards;
@@ -196,10 +201,14 @@ body {
 }
 
 
-/* SECOND SCREEN
-------------------- */
+/*------------------------------------------
+/* 3 - RESULT SCREEN
+/*------------------------------------------*/
 
-.result-screen { display:  none; }
+.result-screen {
+	display:  none;
+	margin-left: 10%;
+}
 
 .result-screen .persona {
 	bottom: 0%;
@@ -246,9 +255,6 @@ body {
 	margin-bottom: 0.3em;
 }
 
-.result-screen {
-	margin-left: 10%;
-}
 
 .retry, .tweet {
 	margin: 0;
@@ -266,6 +272,7 @@ body {
 	font-style: italic;
 }
 
+/* Animtion Class */
 .pulse {
 	-webkit-animation: pulse .2s 1 ease-in forwards;
 	-moz-animation: pulse .2s 1 ease-in forwards;
@@ -282,8 +289,9 @@ body {
 	animation: chef-out .75s 1 ease-in forwards !important;
 }
 
-/* ABOUT
-------------------- */
+/*------------------------------------------
+/* 4 - ABOUT
+/*------------------------------------------*/
 
 /* Overlay style */
 .overlay {
@@ -328,7 +336,6 @@ body {
 	transition: transform 0.4s, opacity 0.4s;
 }
 
-/* Close Button */
 .overlay-close {
   position: absolute;
   display: inline-block;
@@ -379,6 +386,8 @@ body {
 	background: #784533;
 }
 
+
+/* Intern */
 .about {
 	position: absolute;
 	top: 18px; right: 18px;
@@ -407,21 +416,10 @@ body {
 	transition: width 100ms ease-out;
 }
 
-.about a:before {
-  width: 3.8em;
-}
-
-.about a:after {
-  left: 4.1em;
-  width: 0.6em;
-}
-
-.about a:hover::before, .about a:hover::after {
-  width: 0em;
-}
-.about a:hover::after { 
-	left: 0em;
-}
+.about a:before { width: 3.8em; }
+.about a:after { left: 4.1em; width: 0.6em; }
+.about a:hover::before, .about a:hover::after { width: 0em; }
+.about a:hover::after {  left: 0em; }
 
 .readme {
 	width: 380px;
@@ -442,7 +440,7 @@ body {
 
 /* A special hover */
 .readme p a { color: #4e2c20; position: relative;
-	text-decoration: none; }
+text-decoration: none; }
 
 .readme a:before, .readme a:after {
   content:"";
@@ -458,25 +456,15 @@ body {
 	transition: width 100ms ease-out;
 }
 
-.readme a:before {
-  width: 70%;
-}
-
-.readme a:after {
-  left: 75%;
-  width: 25%;
-}
-
-.readme a:hover::before, .readme a:hover::after {
-  width: 0em;
-}
-.readme a:hover::after { 
-	left: 0em;
-}
+.readme a:before { width: 70%; }
+.readme a:after { left: 75%; width: 25%; }
+.readme a:hover::before, .readme a:hover::after { width: 0%; }
+.readme a:hover::after { left: 0em; }
 
 
-/* MEDIA QUERIES - FIX
-------------------- */
+/*------------------------------------------
+/* 5 - MEDIA QUERIES
+/*------------------------------------------*/
 
 @media (max-width: 1100px) {
  	body { font-size: 14px; }
@@ -502,8 +490,9 @@ body {
 	.persona { width: 50% }
 }
 
-
-/* ANIMATIONS */
+/*------------------------------------------
+/* 6 - ANIMATIONS KEYFRAMES
+/*------------------------------------------*/
 
 /* Button Intro Fade In */
 @-webkit-keyframes button-fadein {
@@ -638,33 +627,17 @@ body {
   }
 }
 
-
 @-webkit-keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-   opacity: 0;
-  }
+  0% { opacity: 1; }
+  100% { opacity: 0; }
 }
 
 @-moz-keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-   opacity: 0;
-  }
+  0% { opacity: 1; }
+  100% { opacity: 0; }
 }
 
 @keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-   opacity: 0;
-  }
+  0% { opacity: 1; }
+  100% { opacity: 0; }
 }
