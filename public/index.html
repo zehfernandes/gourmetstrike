@@ -1,18 +1,32 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" itemscope itemtype="http://schema.org/CreativeWork">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title>Gourmet Strike</title>
 
+  	<title>Gourmet Strike | Gerador de elogios gourmets</title>
+
+	<!-- Metatags -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Robô gerador de elogios gourmet baseado em comentários espalhados em resenhas de restaurantes pela internet">
+	<meta name="keywords" content="gourmet, gerador, elogios, comida">
+
+	<!-- Schema.org -->
+	<meta itemprop="name" content="Gourmet Strike">
+	<meta itemprop="url" content="">
+	<meta itemprop="image" content="">
+	<meta itemprop="description" content="Robô gerador de elogios gourmet baseado em comentários espalhados em resenhas de restaurantes pela internet">
+
+	<!-- Style -->
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
 
+	<!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-
+	<!-- Modernizr -->
     <script type="text/javascript" src="js/modernizr.min.js"></script>
+
 </head>
 <body>
 	<div class="title-screen" id="title">
@@ -210,13 +224,13 @@
 	<div class="overlay overlay-scale">
 		<a href="#" class="overlay-close">Close</a>
 		<div class="readme">
-			<p>Um pequeno robo feito com <a href="http://nodejs.org/">Node.js</a> que analisa comentários gourmets do <a href="http://www.tripadvisor.com.br/">Trip Advisor</a> e gera elogios para sua próxima refeição. Um misto de dizer nada, escondido por palavras sofisticadas já apontado por George Orwell no ensaio <a href="http://criticanarede.com/linguagempolitica.html">Política e Lingua Inglesa</a></p>
-			<p><strong>Feito sem compromisso por:</strong> 
-			<br/>- Zeh Fernandes (@zehf)
-			<br/>- Guilherme Golçaves (guipreto)
-			<br/>- Murilo Mafra (guipreto)
-			<br/>- Thiago Grossmann (guipreto)
-			<br/>- Thiago Grossmann (guipreto)
+			<p>Um pequeno robo feito com <a href="http://nodejs.org/" target="_blank" title="NodeJS">Node.js</a> que analisa resenhas de restaurantes feito em sites como Tripadvisor e FourSquare gerando elogios gourmet para sua próxima refeição. Um misto de dizer nada, escondido por palavras sofisticadas como disse George Orwell no ensaio <a href="http://criticanarede.com/linguagempolitica.html" target="_blank" title="Politica e Lingua Inglesa de Geroge Orwell">Política e Lingua Inglesa</a></p>
+			<p><strong>Feito <a href="https://github.com/zehfernandes/gourmetstrike" target="_blank" title="Repositório do Github">abertamente</a> e sem compromisso por:</strong>
+			<br/>- Guilherme Gonçalves Santos (<a href="https://twitter.com/gui_gsantos" target="_blank">@gui_gsantos)</a>
+			<br/>- Guilherme Kürten <a href="https://twitter.com/darthkurten" target="_blank">(@darthkurten)</a>
+			<br/>- Murilo Mafra <a href="https://twitter.com/MuriloM" target="_blank">(@MuriloM)</a>
+			<br/>- Thiago Grossmann <a href="https://twitter.com/garlig" target="_blank">(@garlig)</a>
+			<br/>- Zeh Fernandes <a href="https://twitter.com/zehf" target="_blank">(@zehf)</a>
 			</p>
 		</div>
 	</div>
@@ -225,5 +239,15 @@
 
 <script type="text/javascript" src="js/classie.js"></script>
 <script type="text/javascript" src="js/script.js"></script>
+<script>
+	var $buoop = {c:2};
+	function $buo_f(){
+	 var e = document.createElement("script");
+	 e.src = "//browser-update.org/update.js";
+	 document.body.appendChild(e);
+	};
+	try {document.addEventListener("DOMContentLoaded", $buo_f,false)}
+	catch(e){window.attachEvent("onload", $buo_f)}
+</script>
 
 </html>
