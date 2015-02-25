@@ -476,15 +476,9 @@ text-decoration: none; }
  	body { font-size: 12px; }
 }
 
-@media (max-width: 768px) {
-	.logo { font-size: 3em;  }
- 	.wrap { padding-left: 0; width: 90%; }
-}
-
-/* CELULAR PORTRAIT (320) */
-@media only screen and (min-width : 320px) and (max-width : 360px) {
+/* CELULAR COMMON FEATURES */
+@media only screen and (max-width : 767px) {
   .wrap {
-    width: 100%;
     padding-left: 0; 
     padding-top: 10em; 
     position: fixed; 
@@ -492,11 +486,20 @@ text-decoration: none; }
   }
   .wrap h1 { margin-left: -2em; }
   .button { font-size: 1.85em;}
-
-  .title-screen .persona { width: 160%; left: -20% }
-	#arm, #hand, #plate { display: block }
-
   .about { right: 0; width: 100%; text-align: center; }
+}
+
+/* CELULAR PORTRAIT ( < 375 ) */
+@media only screen and (max-width : 375px) {
+  .wrap { width: 100%; }
+  .title-screen .persona { width: 160%; left: -20% }
+	#arm, #hand, #plate { display: block }  
+}
+/* CELULAR LAND ( 376 < 767 ) */
+@media only screen and (min-width : 376px) and (max-width : 767px) {
+  .wrap { width: 70%; right: 0; }
+  .title-screen .persona { width:90%; left: 2%; }
+  #arm, #hand, #plate { display: none }
 }
 
 /*------------------------------------------
