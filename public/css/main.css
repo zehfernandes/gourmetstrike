@@ -487,16 +487,19 @@ text-decoration: none; }
   .wrap h1 { margin-left: -2em; }
   .button { font-size: 1.85em;}
   .about { right: 0; width: 100%; text-align: center; }
+  .overlay-close { width: 44px; height: 44px; }
+  .readme { width: 250px; margin-left: -125px; margin-top: -141px;
+  }
 }
 
-/* CELULAR PORTRAIT ( < 375 ) */
-@media only screen and (max-width : 375px) {
+/* CELULAR PORTRAIT ( < 414 ) */
+@media only screen and (max-width : 414px) {
   .wrap { width: 100%; }
   .title-screen .persona { width: 160%; left: -20% }
 	#arm, #hand, #plate { display: block }  
 }
-/* CELULAR LAND ( 376 < 767 ) */
-@media only screen and (min-width : 376px) and (max-width : 767px) {
+/* CELULAR LAND ( 415 < 768 ) */
+@media only screen and (min-width : 415px) and (max-width : 767px) {
   .wrap { width: 70%; right: 0; }
   .title-screen .persona { width:90%; left: 2%; }
   #arm, #hand, #plate { display: none }
