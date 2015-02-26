@@ -19,8 +19,9 @@ var transEndEventNames 	= {
 			'transition': 'transitionend'
 		},
 	transEndEventName 	= transEndEventNames[ Modernizr.prefixed( 'transition' ) ],
-	support 			= { transitions : Modernizr.csstransitions };
+	support 			= { transitions : Modernizr.csstransitions },
 
+	wordsForFood = ["Esta comida", "Este prato", "Essa refeição", "Este jantar", "Este almoço", "Essa ceia", "Esse desjejum"];
 
 //------------------------------------------
 // FUNCTIONS
@@ -93,8 +94,11 @@ function goToSecondScreen() {
 	var $_titleScreen = document.querySelector( 'div.title-screen' ),
 		$_resultScren = document.querySelector( 'div.result-screen' ),
 		$_chef = document.getElementById("chef-intro"),
-		$_wrap = document.querySelector( 'div.wrap' );
+		$_wrap = document.querySelector( 'div.wrap' ),
+		$_food = document.getElementById("food");
 
+		console.log(wordsForFood.length)
+	$_food.innerHTML = wordsForFood[  Math.floor(Math.random() * wordsForFood.length  ];
 	classie.add( $_wrap, 'fadeOut' );
 	classie.add( $_chef, 'chef-out' );
 
