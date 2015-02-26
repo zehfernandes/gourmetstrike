@@ -503,25 +503,38 @@ text-decoration: none; }
   .title-screen .persona { width: 160%; left: -20% }
 	#arm, #hand, #plate { display: block }  
 }
-/* ( < 375 ) */
-@media only screen and (max-width : 375px) {
-  .tweet { margin-left: 0; margin-top: 1em; }
-}
+/* ( < 360 ) */
 @media only screen and (max-width : 359px) {
+  .tweet { margin-left: 0; margin-top: 1em; }
   .complain { font-size: 3em; height: 230px; }
 }
+/* ( 360 < 414 ) */
 @media only screen and (min-width : 360px) and (max-width : 413px) {
+  .tweet { margin-left: 0; margin-top: 1em; }
   .complain { font-size: 3.6em; }
 }
-@media only screen and (min-width : 414px) and (max-width : 767px) {
+/* ( 414 < 480 ) */
+@media only screen and (min-width : 414px) and (max-width : 479px) {
   .complain { font-size: 4em; }
 }
 
-/* CELULAR LAND ( 415 < 768 ) */
+/* CELULAR LAND */
+/* ( 415 < 768 ) */
 @media only screen and (min-width : 415px) and (max-width : 767px) {
   .wrap { width: 70%; right: 0; }
   .title-screen .persona { width:90%; left: 2%; }
   #arm, #hand, #plate { display: none }
+}
+/* ( 480 < 768 ) */
+@media only screen and (min-width : 480px) and (max-width : 767px) {
+  .result-screen { margin-top: 8%; }
+  .complain { font-size: 2.6em; height: 175px; }
+}
+/* ( 568 < 768 ) */
+@media only screen and (min-width : 568px) and (max-width : 767px) {
+  .complain { width: 70%; }
+  .result-screen .persona { display: block; width: 37%; }
+  .result-screen { margin-left: 5%; }
 }
 
 /*------------------------------------------
