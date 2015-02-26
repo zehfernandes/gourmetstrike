@@ -488,16 +488,35 @@ text-decoration: none; }
   .button { font-size: 1.85em;}
   .about { right: 0; width: 100%; text-align: center; }
   .overlay-close { width: 44px; height: 44px; }
-  .readme { width: 250px; margin-left: -125px; margin-top: -141px;
-  }
+  .readme { width: 250px; margin-left: -125px; margin-top: -141px; }
+  .instruction { display: none; }
+  .complain { width: 100%; }
+  .result-screen { width: 80%; margin-top: 20%; }  
+  .retry, .tweet { font-size: 1.05em; }
+  .result-screen .persona { display: none; }
 }
 
-/* CELULAR PORTRAIT ( < 414 ) */
+/* CELULAR PORTRAIT */
+/* ( < 414 ) */
 @media only screen and (max-width : 414px) {
   .wrap { width: 100%; }
   .title-screen .persona { width: 160%; left: -20% }
 	#arm, #hand, #plate { display: block }  
 }
+/* ( < 375 ) */
+@media only screen and (max-width : 375px) {
+  .tweet { margin-left: 0; margin-top: 1em; }
+}
+@media only screen and (max-width : 359px) {
+  .complain { font-size: 3em; height: 230px; }
+}
+@media only screen and (min-width : 360px) and (max-width : 413px) {
+  .complain { font-size: 3.6em; }
+}
+@media only screen and (min-width : 414px) and (max-width : 767px) {
+  .complain { font-size: 4em; }
+}
+
 /* CELULAR LAND ( 415 < 768 ) */
 @media only screen and (min-width : 415px) and (max-width : 767px) {
   .wrap { width: 70%; right: 0; }
