@@ -98,7 +98,7 @@ function goToSecondScreen() {
 		$_food = document.getElementById("food");
 
 		console.log(wordsForFood.length)
-	$_food.innerHTML = wordsForFood[  Math.floor(Math.random() * wordsForFood.length  ];
+	$_food.innerHTML = wordsForFood[  Math.floor(Math.random() * wordsForFood.length) ];
 	classie.add( $_wrap, 'fadeOut' );
 	classie.add( $_chef, 'chef-out' );
 
