@@ -19,21 +19,18 @@ var transEndEventNames 	= {
 			'transition': 'transitionend'
 		},
 	transEndEventName 	= transEndEventNames[ Modernizr.prefixed( 'transition' ) ],
-	support 			= { transitions : Modernizr.csstransitions },
-
-	wordsForFood = ["Esta comida", "Este prato", "Essa refeição", "Este jantar", "Este almoço", "Essa ceia", "Esse desjejum"];
-
+	support 			= { transitions : Modernizr.csstransitions };
 //------------------------------------------
 // FUNCTIONS
 //------------------------------------------
 
-function requestWords() {
+function requestWords(evt) {
 
 	if (generate == true) {
 		generate = false;
 
 		var request = new XMLHttpRequest();
-		request.open('GET', '/hello', true);
+		request.open('GET', '/hello?lang='+lang, true);
 
 		request.onload = function() {
 		  if (request.status >= 200 && request.status < 400) {
@@ -63,6 +60,8 @@ function requestWords() {
 		request.send();
 
 	}
+
+	if (evt) { evt.preventDefault(); }
 }
 
 
@@ -73,7 +72,8 @@ function openTweetBox(evt) {
   	var height = 350;
   	var left = window.innerWidth/2 - width/2;
   	var top = window.innerHeight/2 - height/2;
-  	var url = 'http://twitter.com/share?url=http://gourmetstrike.herokuapp.com&text=' + currentExpression + '&hashtags=gourmetstrike&';
+  	var food = document.getElementById("food").innerHTML;
+  	var url = 'http://twitter.com/share?url=http://gourmetstrike.com&text="' + food+" "+ currentExpression + '" -&';
 
   	window.open(url,'janela', 'width='+width+', height='+height+', top='+top+', left='+left+', scrollbars=no, status=no, toolbar=no, location=no, directories=no, menubar=no, resizable=no, fullscreen=no');
 
@@ -90,14 +90,13 @@ function spaceBarShortCut(evt) {
 }
 
 //Go To result screen
-function goToSecondScreen() {
+function goToSecondScreen(evt) {
 	var $_titleScreen = document.querySelector( 'div.title-screen' ),
 		$_resultScren = document.querySelector( 'div.result-screen' ),
 		$_chef = document.getElementById("chef-intro"),
 		$_wrap = document.querySelector( 'div.wrap' ),
 		$_food = document.getElementById("food");
 
-		console.log(wordsForFood.length)
 	$_food.innerHTML = wordsForFood[  Math.floor(Math.random() * wordsForFood.length) ];
 	classie.add( $_wrap, 'fadeOut' );
 	classie.add( $_chef, 'chef-out' );
@@ -107,10 +106,12 @@ function goToSecondScreen() {
 		$_resultScren.style.display = "block";
 		requestWords(null);
 	}, 650);
+
+	evt.preventDefault();
 }
 
 //Open Modal
-function toggleOverlay() {
+function toggleOverlay(evt) {
 	if( classie.has( overlay, 'open' ) ) {
 		classie.remove( overlay, 'open' );
 		classie.add( overlay, 'close' );
@@ -131,6 +132,19 @@ function toggleOverlay() {
 	else if( !classie.has( overlay, 'close' ) ) {
 		classie.add( overlay, 'open' );
 	}
+
+	evt.preventDefault();
+}
+
+function languageSwitch(evt) {
+	var $_this = this;
+
+	$_this.className;
+	document.cookie = "lang=" + $_this.className + "; path=/";
+
+	window.location.href = "http://gourmetstrike.com";
+
+	evt.preventDefault();
 }
 
 //------------------------------------------
@@ -140,6 +154,7 @@ function toggleOverlay() {
 document.getElementById("retry").addEventListener("click", requestWords);
 document.getElementById("tweet").addEventListener("click", openTweetBox);
 document.getElementById("start").addEventListener("click", goToSecondScreen);
+document.querySelector(".language a").addEventListener("click", languageSwitch);
 document.addEventListener("keyup", spaceBarShortCut, false);
 document.getElementById( 'trigger-overlay' ).addEventListener( 'click', toggleOverlay );
 $_closeBttn.addEventListener( 'click', toggleOverlay );
