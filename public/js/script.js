@@ -72,7 +72,8 @@ function openTweetBox(evt) {
   	var height = 350;
   	var left = window.innerWidth/2 - width/2;
   	var top = window.innerHeight/2 - height/2;
-  	var url = 'http://twitter.com/share?url=http://gourmetstrike.herokuapp.com&text=' + currentExpression + '&hashtags=gourmetstrike&';
+  	var food = document.getElementById("food").innerHTML;
+  	var url = 'http://twitter.com/share?url=http://gourmetstrike.com&text="' + food+" "+ currentExpression + '" -&';
 
   	window.open(url,'janela', 'width='+width+', height='+height+', top='+top+', left='+left+', scrollbars=no, status=no, toolbar=no, location=no, directories=no, menubar=no, resizable=no, fullscreen=no');
 
