@@ -389,21 +389,27 @@ body {
 
 
 /* Intern */
-.about {
+.about,
+.language {
 	position: absolute;
-	top: 18px; right: 18px;
+	top: 18px; 
 	color: #cba294;
 	font-size: 0.9em;
 	font-family:'ProximaNova-Regular';
 }
 
-.about a {
+.about {right: 18px; }
+.language { left: 18px; }
+
+.about a,
+.language a {
 	color: #bc978a;
 	position: relative;
 	text-decoration: none;
 }
 
-.about a:before, .about a:after {
+.about a:before, .about a:after,
+.language a:before {
   content:"";
   background:#bc978a;
   height:1px;
@@ -417,10 +423,13 @@ body {
 	transition: width 100ms ease-out;
 }
 
-.about a:before { width: 3.8em; }
-.about a:after { left: 4.1em; width: 0.6em; }
+.about a:before { width: 70%; }
+.about a:after { left: 75%; width: 25%;}
 .about a:hover::before, .about a:hover::after { width: 0em; }
 .about a:hover::after {  left: 0em; }
+
+.language a:before { width: 100%; }
+.language a:hover::before { width: 0em; }
 
 .readme {
 	width: 380px;
