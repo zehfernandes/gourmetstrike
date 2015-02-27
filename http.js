@@ -56,7 +56,7 @@ router.get("/", function(request, response) {
     }
 
     response.writeHead(301, {
-        'Location': 'http://localhost:3000/'+lang
+        'Location': 'http://gourmetstrike.herokuapp.com/'+lang
     });
     response.end();
 });
