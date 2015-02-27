@@ -139,15 +139,14 @@ body {
 
 .title-screen .persona {
 	bottom: -100%;
-	left: 20%;
-	width: 60%;
+	left: 5%;
+	width: 80%;
 	-webkit-animation: chef-intro .75s .35s 1 cubic-bezier(0.555, -0.200, 0.260, 1.315) forwards;
 	-moz-animation: chef-intro .75s .35s 1 cubic-bezier(0.555, -0.200, 0.260, 1.315) forwards;
 	-ms-animation: chef-intro .75s .35s 1 cubic-bezier(0.555, -0.200, 0.260, 1.315) forwards;
 	-o-animation: chef-intro .75s .35s 1 cubic-bezier(0.555, -0.200, 0.260, 1.315) forwards;
 	animation: chef-intro .75s .35s 1 cubic-bezier(0.555, -0.200, 0.260, 1.315) forwards;
 }
-
 
 /* Logo */
 .gourmet, .strike {
@@ -209,13 +208,13 @@ body {
 
 .result-screen {
 	display:  none;
-	margin-left: 10%;
+	margin-left: 5%;
 }
 
 .result-screen .persona {
 	bottom: 0%;
 	right: 0%;
-	width: 40%;
+	width: 35%;
 	display: block;
 	-webkit-animation: chef-result .75s 0 1 cubic-bezier(0.555, -0.200, 0.260, 1.315) forwards;
 	-moz-animation: chef-result .75s 0 1 cubic-bezier(0.555, -0.200, 0.260, 1.315) forwards;
@@ -228,9 +227,9 @@ body {
 	font-family:'ProximaNova-Bold';
 	color: #fff;
 	text-transform: uppercase;
-	font-size: 5em;
+	font-size: 4.5em;
 	line-height: 1em;
-	width: 70%;
+	width: 60%;
 	height: 370px;
 	-webkit-transform-origin: center center;
 	-moz-transform-origin: center center;
@@ -488,22 +487,79 @@ text-decoration: none; }
   .button { font-size: 1.85em;}
   .about { right: 0; width: 100%; text-align: center; }
   .overlay-close { width: 44px; height: 44px; }
-  .readme { width: 250px; margin-left: -125px; margin-top: -141px;
-  }
+  .readme { width: 250px; margin-left: -125px; margin-top: -141px; }
+  .instruction { display: none; }
+  .complain { width: 100%; }
+  .result-screen { width: 80%; margin-top: 20%; }  
+  .retry, .tweet { font-size: 1.05em; }
+  .result-screen .persona { display: none; }
 }
 
-/* CELULAR PORTRAIT ( < 414 ) */
+/* CELULAR PORTRAIT */
+/* ( < 414 ) */
 @media only screen and (max-width : 414px) {
   .wrap { width: 100%; }
   .title-screen .persona { width: 160%; left: -20% }
 	#arm, #hand, #plate { display: block }  
 }
-/* CELULAR LAND ( 415 < 768 ) */
+/* ( < 360 ) */
+@media only screen and (max-width : 359px) {
+  .tweet { margin-left: 0; margin-top: 1em; }
+  .complain { font-size: 3em; height: 230px; }
+}
+/* ( 360 < 414 ) */
+@media only screen and (min-width : 360px) and (max-width : 413px) {
+  .tweet { margin-left: 0; margin-top: 1em; }
+  .complain { font-size: 3.6em; }
+}
+/* ( 414 < 480 ) */
+@media only screen and (min-width : 414px) and (max-width : 479px) {
+  .complain { font-size: 4em; }
+}
+
+/* CELULAR LAND */
+/* ( 415 < 768 ) */
 @media only screen and (min-width : 415px) and (max-width : 767px) {
   .wrap { width: 70%; right: 0; }
   .title-screen .persona { width:90%; left: 2%; }
   #arm, #hand, #plate { display: none }
 }
+/* ( 480 < 768 ) */
+@media only screen and (min-width : 480px) and (max-width : 767px) {
+  .result-screen { margin-top: 8%; }
+  .complain { font-size: 2.6em; height: 175px; }
+}
+/* ( 568 < 768 ) */
+@media only screen and (min-width : 568px) and (max-width : 767px) {
+  .complain { width: 70%; }
+  .result-screen .persona { display: block; width: 37%; }
+  .result-screen { margin-left: 5%; }
+}
+
+/* iPad PORTRAIT */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .wrap { width: 100%; padding: 10em 0 0 0; font-size: 1.25em; }
+  .title-screen .persona { left: -15%; width: 150%; }
+  .result-screen .persona { width: 65%; }
+}
+/* iPad LAND */
+@media only screen and (min-width: 1024px) and (max-width: 1355px) {
+  .title-screen .persona { left: 5%; width: 90%; }
+  .result-screen { margin-left: 5%; }
+  .complain { width: 60%; height: 460px; }
+}
+
+@media only screen and (min-width: 1356px) and (max-width: 1669px) {
+  #arm, #hand, #plate { display: none; } 
+}
+
+/* XL SCREEN */
+@media only screen and (min-width: 1670px) {
+  .title-screen .persona { left: 15%; width: 80%; }
+  .complain { font-size: 5.5em; height: 550px; }
+  .result-screen .persona { width: 40%; }
+}
+
 
 /*------------------------------------------
 /* 6 - ANIMATIONS KEYFRAMES
