@@ -105,22 +105,7 @@ router.get("/pt", function(request, response) {
     });
 });
 
-/*
-router.get("/en", function(request, response) {
-
-    var file = "index.html";
-
-    fs.readFile("public/"+file, function (err, html) {
-        if (err) {
-            throw err;
-        }
-        response.writeHeader(200, {"Content-Type": "text/html"});
-        response.write(html);
-        response.end();
-    });
-}); */
-
 var server = http.createServer(router);
-server.listen(process.env.PORT || 3000, function(){
+server.listen(process.env.PORT || 80, function(){
   console.log('listening on', server.address().port);
 });
