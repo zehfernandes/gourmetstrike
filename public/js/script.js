@@ -135,6 +135,17 @@ function toggleOverlay(evt) {
 	evt.preventDefault();
 }
 
+function languageSwitch(evt) {
+	var $_this = this;
+
+	$_this.className;
+	document.cookie = "lang=" + $_this.className + "; path=/";
+
+	window.location.href = "http://gourmetstrike.com";
+
+	evt.preventDefault();
+}
+
 //------------------------------------------
 // LISTNERS
 //------------------------------------------
@@ -142,6 +153,7 @@ function toggleOverlay(evt) {
 document.getElementById("retry").addEventListener("click", requestWords);
 document.getElementById("tweet").addEventListener("click", openTweetBox);
 document.getElementById("start").addEventListener("click", goToSecondScreen);
+document.querySelector(".language a").addEventListener("click", languageSwitch);
 document.addEventListener("keyup", spaceBarShortCut, false);
 document.getElementById( 'trigger-overlay' ).addEventListener( 'click', toggleOverlay );
 $_closeBttn.addEventListener( 'click', toggleOverlay );

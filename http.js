@@ -1,10 +1,23 @@
 var http = require('http'),
-	Router = require('node-simple-router'),
-	router = Router()
-	drive = require("drive-db").load();
+    Router = require('node-simple-router'),
+    router = Router()
+    drive = require("drive-db").load();
     fs = require('fs');
 
 drive.update("1C3lg4GdS5DGnnpCWP1KHf6FHxLuM1lR44w_AAfKXdZ4");
+
+//Function Parse Cookie
+function parseCookies (request) {
+    var list = {},
+        rc = request.headers.cookie;
+
+    rc && rc.split(';').forEach(function( cookie ) {
+        var parts = cookie.split('=');
+        list[parts.shift().trim()] = decodeURI(parts.join('='));
+    });
+
+    return list;
+}
 
 router.get("/hello", function(request, response) {
 
@@ -43,22 +56,37 @@ router.get("/hello", function(request, response) {
 
     });
 
-	response.end(expression);
+    response.end(expression);
 });
 
 router.get("/", function(request, response) {
 
-    var lang = "en";
+    var cookies = parseCookies(request);
+    var lang;
 
     //Language
-    if (request.headers["accept-language"].substr(0,2) == "pt") {
-        lang = "pt";
+    if (!cookies['lang']) {
+        lang = request.headers["accept-language"].substr(0,2);
+    } else {
+        lang = cookies['lang'];
     }
 
-    response.writeHead(301, {
-        'Location': 'http://gourmetstrike.com/'+lang
-    });
-    response.end();
+    if (lang == "pt") {
+        response.writeHead(301, {
+            'Location': 'http://gourmetstrike.com/pt',
+            'Set-Cookie': 'lang=pt'
+        });
+        response.end();
+    } else {
+        fs.readFile("public/index.html", function (err, html) {
+            if (err) {
+                throw err;
+            }
+            response.writeHeader(200, {"Content-Type": "text/html", 'Set-Cookie': 'lang=en'});
+            response.write(html);
+            response.end();
+        });
+    }
 });
 
 router.get("/pt", function(request, response) {
@@ -69,12 +97,13 @@ router.get("/pt", function(request, response) {
         if (err) {
             throw err;
         }
-        response.writeHeader(200, {"Content-Type": "text/html"});
+        response.writeHeader(200, {"Content-Type": "text/html", 'Set-Cookie': 'lang=pt'});
         response.write(html);
         response.end();
     });
 });
 
+/*
 router.get("/en", function(request, response) {
 
     var file = "index.html";
@@ -87,7 +116,7 @@ router.get("/en", function(request, response) {
         response.write(html);
         response.end();
     });
-});
+}); */
 
 var server = http.createServer(router);
 server.listen(process.env.PORT || 80, function(){
