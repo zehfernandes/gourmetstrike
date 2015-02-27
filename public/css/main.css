@@ -537,6 +537,20 @@ text-decoration: none; }
   .result-screen { margin-left: 5%; }
 }
 
+/* iPad PORTRAIT */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .wrap { width: 100%; padding: 10em 0 0 0; font-size: 1.25em; }
+  .title-screen .persona { left: -15%; width: 150%; }
+  .result-screen .persona { width: 65%; }
+}
+/* iPad LAND */
+@media only screen and (min-width: 1024px) {
+  .title-screen .persona { left: 5%; width: 90%; }
+  .result-screen { margin-left: 5%; }
+  .complain { width: 60%; height: 460px; }
+}
+
+
 /*------------------------------------------
 /* 6 - ANIMATIONS KEYFRAMES
 /*------------------------------------------*/
