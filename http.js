@@ -66,7 +66,9 @@ router.get("/", function(request, response) {
 
     //Language
     if (!cookies['lang']) {
-        lang = request.headers["accept-language"].substr(0,2);
+        if (request.headers["accept-language"]) {
+            lang = request.headers["accept-language"].substr(0,2);
+        }
     } else {
         lang = cookies['lang'];
     }
