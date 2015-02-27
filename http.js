@@ -64,6 +64,6 @@ fs.readFile("public/index.html", function (err, html) {
 });
 
 var server = http.createServer(router);
-server.listen(process.env.PORT || 3000, function(){
+server.listen(process.env.PORT || 80, function(){
   console.log('listening on', server.address().port);
 });
