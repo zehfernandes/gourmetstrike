@@ -302,6 +302,7 @@ body {
 	top: 0;
 	left: 0;
 	background: rgba(240,85,110,1);
+	z-index: 9999;
 }
 
 .overlay-scale {
@@ -490,18 +491,21 @@ text-decoration: none; }
     padding-left: 0; 
     padding-top: 10em; 
     position: fixed; 
-    font-size: .65em; 
+    font-size: .63em; 
   }
   .wrap h1 { margin-left: -2em; }
   .button { font-size: 1.85em;}
-  .about { right: 0; width: 100%; text-align: center; }
+  .about { right: 10px; width: 95%; text-align: right; z-index: 1; }
+  .language { z-index: 2; }
   .overlay-close { width: 44px; height: 44px; }
   .readme { width: 250px; margin-left: -125px; margin-top: -141px; }
   .instruction { display: none; }
-  .complain { width: 100%; }
-  .result-screen { width: 80%; margin-top: 20%; }  
+  .complain { width: 100%; height: auto !important; }
+  .result-screen { width: 90%; margin-top: 20%; }  
   .retry, .tweet { font-size: 1.05em; }
   .result-screen .persona { display: none; }
+
+  .result-screen .button { display: block; width: 100%; }
 }
 
 /* CELULAR PORTRAIT */
@@ -509,7 +513,7 @@ text-decoration: none; }
 @media only screen and (max-width : 414px) {
   .wrap { width: 100%; }
   .title-screen .persona { width: 160%; left: -20% }
-	#arm, #hand, #plate { display: block }  
+	#arm, #hand, #plate { display: block }
 }
 /* ( < 360 ) */
 @media only screen and (max-width : 359px) {
@@ -548,18 +552,22 @@ text-decoration: none; }
 /* iPad PORTRAIT */
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
   .wrap { width: 100%; padding: 10em 0 0 0; font-size: 1.25em; }
-  .title-screen .persona { left: -15%; width: 150%; }
-  .result-screen .persona { width: 65%; }
+  .result-screen { font-size: 1.25em;}
+  .complain { width: 90%; height: 270px; }
+  .title-screen .persona { left: -15%; width: 150%; height:600px; }
+  .result-screen .persona { width: 85%;  height: 400px; left: 55% }
 }
 /* iPad LAND */
 @media only screen and (min-width: 1024px) and (max-width: 1355px) {
-  .title-screen .persona { left: 5%; width: 90%; }
+  .title-screen .persona { left: 5%; width: 90%; height: 500px  }
+  #arm, #hand, #plate { display: none; }
   .result-screen { margin-left: 5%; }
-  .complain { width: 60%; height: 460px; }
+  .result-screen .persona { margin-left: 5%;  height: 300px; }
+  .complain { width: 60%; height: 360px; }
 }
 
 @media only screen and (min-width: 1356px) and (max-width: 1669px) {
-  #arm, #hand, #plate { display: none; } 
+  #arm, #hand, #plate { display: none; }
 }
 
 /* XL SCREEN */
